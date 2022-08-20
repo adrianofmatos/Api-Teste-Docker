@@ -10,5 +10,11 @@ spec:
       containers:
         - name: readshow
           image: adrianofalcao/exemplo_job:v4
-          command: ["python", "/run.py"]
+          env:
+            - name: MINHA_VAR
+              valueFrom:
+                configMapKeyRef:
+                  name: ambiente
+                  key: minha_var
+          command: ["python", "-c", "import os; print(os.environ['MINHA_VAR'])"]
       restartPolicy: Never
