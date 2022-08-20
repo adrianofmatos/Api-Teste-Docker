@@ -4,6 +4,7 @@ metadata:
   name: static-web
   labels:
     curso: edc
+    app: meungnix
 spec:
   containers:
     - name: web
